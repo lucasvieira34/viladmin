@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout-dashboard}">
 
 <head>
-  <title>Contas</title>
+  <title>VilaAdmin - Geral</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-table"></i> Relatório Geral de Contas</h3>
             <ol class="breadcrumb breadcrumb-geral">
-              <li><i class="fa fa-home"></i><a th:href="@{/dashboard/residencias}">Dashboard</a></li>
+              <li><i class="fa fa-home"></i><a th:href="@{/}">Dashboard</a></li>
               <li><i class="fa fa-table"></i>Contas</li>
               <li><i class="fa fa-th-list"></i>Todas as Contas</li>
               <a class="btn btn-primary barra-pdf barra-pdf-geral" th:href="@{/dashboard/contas/geral/pdf}" target="_blank">Gerar PDF</a>
