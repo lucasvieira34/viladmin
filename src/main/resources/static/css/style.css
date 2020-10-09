@@ -9910,6 +9910,24 @@ span.customSelect.changed {
 
       border-radius: 0px;
 
+      height: 75px;
+
+      position: relative;
+
+      margin: 0 0 19px 0;
+
+      overflow: hidden;
+
+    }
+
+    .breadcrumb-nova{
+
+      -webkit-border-radius: 0px;
+
+      -moz-border-radius: 0px;
+
+      border-radius: 0px;
+
       height: 65px;
 
       position: relative;
@@ -9941,7 +9959,7 @@ span.customSelect.changed {
         .barra-pdf-geral {
             float: right;
             margin-left: 5px;
-            margin-top: -12px;
+            margin-top: 5px;
         }
 
         .barra-pdf-btn {
