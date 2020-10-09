@@ -3,6 +3,7 @@ package br.com.lucasteixeira.vilacontrol.security;
 import br.com.lucasteixeira.vilacontrol.service.ImplementsUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -25,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/").permitAll()
+                .antMatchers(HttpMethod.GET, "/dashboard/contas/geral/receber/**").hasRole("SINDICO")
                 .anyRequest().authenticated()
                 .and()
                     .formLogin().permitAll()
