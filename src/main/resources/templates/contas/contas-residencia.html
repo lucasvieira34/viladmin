@@ -19,6 +19,7 @@
               <li><i class="fa fa-table"></i>Contas</li>
               <li th:text="${residencia.casa}"><i class="fa fa-th-list"></i></li>
               <a class="btn btn-primary barra-pdf" th:href="@{'/dashboard/contas/' + ${id_residencia} + '/pdf'}" target="_blank">Gerar PDF</a>
+              <a class="btn btn-primary barra-pdf" th:href="@{'/dashboard/contas/nova/' + ${residencia.id_residencia}}">Nova Conta</a>
             </ol>
           </div>
         </div>
@@ -60,8 +61,6 @@
                   <button type="submit" class="btn btn-primary my-1">Filtrar</button>
                 </form>
               </div>
-
-              <a class="btn btn-primary" th:href="@{'/dashboard/contas/nova/' + ${residencia.id_residencia}}">Nova Conta</a>
 
             </section>
           </div>
