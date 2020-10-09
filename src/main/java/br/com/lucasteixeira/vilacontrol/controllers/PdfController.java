@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -52,8 +49,10 @@ public class PdfController {
         response.setContentType("text/html");
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(contas);
 
-        File file = ResourceUtils.getFile("classpath:templates/reports/relatorio_contas.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        String pathToMyFile = "classpath:templates/reports/relatorio_contas.jrxml";
+        InputStream file = ResourceUtils.getURL(pathToMyFile).openStream();
+
+        JasperReport jasperReport = JasperCompileManager.compileReport(file);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
 
         JRPdfExporter pdfExporter = new JRPdfExporter();
