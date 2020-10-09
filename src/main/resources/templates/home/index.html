@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout-dashboard}">
+
+<head>
+  <title>Contas</title>
+</head>
+
+<body>
+    <!--main content start-->
+    <section id="main-content" layout:fragment="corpo">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i> Relatório Individual de Contas</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-table"></i>Contas</li>
+              <li><i class="fa fa-th-list"></i>Individual</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+
+              <table class="table table-striped table-advance table-hover">
+                <tbody>
+                  <tr>
+                    <th>#</th>
+                    <th><i class="icon_building"></i> Residência</th>
+                    <th><i class="icon-user"></i> Morador</th>
+                    <th><i class="icon_cogs"></i> Selecionar</th>
+                  </tr>
+                  <tr th:each="residencia : ${residencias}">
+                    <th scope="row" th:text="${residencia.id_residencia}"></th>
+                    <td th:text="${residencia.casa}"></td>
+                    <td th:text="${residencia.morador.nome}"></td>
+                    <td><a th:href="@{'/dashboard/contas/' + ${residencia.id_residencia}}">Selecionar</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+</body>
+
+</html>
