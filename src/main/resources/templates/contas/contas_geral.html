@@ -14,11 +14,11 @@
         <div class="row">
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-table"></i> Relatório Geral de Contas</h3>
-            <ol class="breadcrumb">
+            <ol class="breadcrumb breadcrumb-geral">
               <li><i class="fa fa-home"></i><a th:href="@{/dashboard/residencias}">Dashboard</a></li>
               <li><i class="fa fa-table"></i>Contas</li>
               <li><i class="fa fa-th-list"></i>Todas as Contas</li>
-              <a class="btn btn-primary barra-pdf" th:href="@{/dashboard/contas/geral/pdf}" target="_blank">Gerar PDF</a>
+              <a class="btn btn-primary barra-pdf barra-pdf-geral" th:href="@{/dashboard/contas/geral/pdf}" target="_blank">Gerar PDF</a>
             </ol>
           </div>
         </div>
@@ -27,36 +27,38 @@
           <div class="col-lg-12">
             <section class="panel">
 
-              <table class="table table-striped table-advance table-hover">
-                <tbody>
-                  <tr>
-                    <th>#</th>
-                    <th><i class="icon_building"></i> Residência</th>
-                    <th><i class="icon-user"></i> Morador</th>
-                    <th><i class="icon_tasks"></i> Contas</th>
-                    <th><i class="icon_dollar"></i> Valor</th>
-                    <th><i class="icon_calendar"></i> Data</th>
-                    <th><i class="icon-warning-sign"></i> Status</th>
-                    <th><i class="icon_cogs"></i> Ação</th>
-                  </tr>
-                  <tr th:each="conta : ${contas}">
-                    <th scope="row"></th>
-                    <td th:text="${conta.residencia.casa}"></td>
-                    <td th:text="${conta.residencia.morador.nome}"></td>
-                    <td th:text="${conta.nome}"></td>
-                    <td th:text="|R$ ${{conta.valor}}|"></td>
-                    <td th:text="${{conta.pagamento}}"></td>
-                    <td th:attr="data-role=${conta.id_contas}">
-                      <span class="badge" th:text="${conta.status.descricao}"
-                            th:classappend="${(conta.pendente) ? 'bg-danger' :  'bg-success'}">
-                      </span>
-                    </td>
-                    <td>
-                      <a th:if="${(conta.pendente)}" th:href="@{'/dashboard/contas/geral/receber/' + ${conta.id_contas}}"><span class="material-icons text-success">done</span></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table table-striped table-advance table-hover">
+                  <tbody>
+                    <tr>
+                      <th>#</th>
+                      <th><i class="icon_building"></i> Residência</th>
+                      <th><i class="icon-user"></i> Morador</th>
+                      <th><i class="icon_tasks"></i> Contas</th>
+                      <th><i class="icon_dollar"></i> Valor</th>
+                      <th><i class="icon_calendar"></i> Data</th>
+                      <th><i class="icon-warning-sign"></i> Status</th>
+                      <th><i class="icon_cogs"></i> Ação</th>
+                    </tr>
+                    <tr th:each="conta : ${contas}">
+                      <th scope="row"></th>
+                      <td th:text="${conta.residencia.casa}"></td>
+                      <td th:text="${conta.residencia.morador.nome}"></td>
+                      <td th:text="${conta.nome}"></td>
+                      <td th:text="|R$ ${{conta.valor}}|"></td>
+                      <td th:text="${{conta.pagamento}}"></td>
+                      <td th:attr="data-role=${conta.id_contas}">
+                        <span class="badge" th:text="${conta.status.descricao}"
+                              th:classappend="${(conta.pendente) ? 'bg-danger' :  'bg-success'}">
+                        </span>
+                      </td>
+                      <td>
+                        <a th:if="${(conta.pendente)}" th:href="@{'/dashboard/contas/geral/receber/' + ${conta.id_contas}}"><span class="material-icons text-success">done</span></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
             </section>
           </div>

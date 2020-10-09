@@ -7996,7 +7996,7 @@ ul.amounts li {
 
     border-bottom: 1px solid #eff2f7;
 
-    padding-bottom: 15px;
+    padding-bottom: 0px;
 
     margin-bottom: 15px;
 
@@ -9899,4 +9899,54 @@ span.customSelect.changed {
 .barra-pdf {
     float: right;
     margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+	.breadcrumb-geral{
+
+      -webkit-border-radius: 0px;
+
+      -moz-border-radius: 0px;
+
+      border-radius: 0px;
+
+      height: 65px;
+
+      position: relative;
+
+      margin: 0 0 19px 0;
+
+      overflow: hidden;
+
+    }
+
+    .breadcrumb-botao{
+
+          -webkit-border-radius: 0px;
+
+          -moz-border-radius: 0px;
+
+          border-radius: 0px;
+
+          height: 80px;
+
+          position: relative;
+
+          margin: 0 0 19px 0;
+
+          overflow: hidden;
+
+        }
+
+        .barra-pdf-geral {
+            float: right;
+            margin-left: 5px;
+            margin-top: -12px;
+        }
+
+        .barra-pdf-btn {
+            float: right;
+            margin-left: 5px;
+            margin-top: 7px;
+        }
 }
