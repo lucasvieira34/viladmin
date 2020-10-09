@@ -52,7 +52,7 @@
                       </span>
                     </td>
                     <td>
-                      <a th:if="${(conta.pendente)}" href=""><span class="material-icons text-success">done</span></a>
+                      <a th:if="${(conta.pendente)}" th:href="@{'/dashboard/contas/geral/receber/' + ${conta.id_contas}}"><span class="material-icons text-success">done</span></a>
                     </td>
                   </tr>
                 </tbody>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -13,6 +14,10 @@ public class ContasService {
 
     @Autowired
     private ContasRepository contasRepository;
+
+    public Contas contaPorId(long id) {
+        return contasRepository.findById(id).get();
+    }
 
     //OrderBy
     public List<Contas> todasContas(){
@@ -24,7 +29,7 @@ public class ContasService {
     }
 
     public List<Contas> contasPorResidencia(long id){
-        return contasRepository.findById(id);
+        return contasRepository.findAllById(Collections.singleton(id));
     }
 
     public void salvarConta(Contas conta){

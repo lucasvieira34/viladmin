@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ContasRepository extends JpaRepository<Contas, Long> {
 
-    List<Contas> findById(long id);
+
 
     // LISTA DE CONTAS ORDENADAS DESCRESCENTE PELO VALOR
     List<Contas> findAllByOrderByValorDesc();

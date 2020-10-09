@@ -84,6 +84,7 @@ public class DashboardController {
         return mv;
     }
 
+    // PÁGINA DE CADASTRO DE NOVA CONTA
     @GetMapping("/dashboard/contas/nova/{id_residencia}")
     public ModelAndView novaConta(@PathVariable("id_residencia") long id){
         Residencia residencia = residenciaService.residenciaPorId(id);
@@ -93,12 +94,22 @@ public class DashboardController {
         return mv;
     }
 
+    // REQUEST DE NOVA CONTA
     @PostMapping("/dashboard/contas/nova/{id_residencia}")
     public String salvarNovaConta(Contas conta, @PathVariable("id_residencia") long id){
         Residencia residencia = residenciaService.residenciaPorId(id);
         conta.setResidencia(residencia);
         contasService.salvarConta(conta);
         return "redirect:/dashboard/contas/{id_residencia}";
+    }
+
+    // RECEBER PAGAMENTO
+    @GetMapping("/dashboard/contas/geral/receber/{id_conta}")
+    public String receberPagamentoGeral(@PathVariable("id_conta") long id){
+        Contas conta = contasService.contaPorId(id);
+        conta.setStatus(StatusPagamento.RECEBIDO);
+        contasService.salvarConta(conta);
+        return "redirect:/dashboard/contas/geral";
     }
 
 
